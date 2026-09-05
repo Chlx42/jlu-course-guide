@@ -62,8 +62,16 @@ hasCJKLanguage = true
     type = "flexsearch"
 
     [params.search.flexsearch]
+      # 搜索索引字段 - 使用 content 字段（包含所有内容）
       index = "content"
+      # 中文分词：forward 支持从左到右匹配
       tokenize = "forward"
+      # 搜索深度：balance 在速度和质量之间平衡
+      depth = 3
+      # 最小匹配长度
+      minMatchCharLength = 2
+      # 限制搜索结果数量
+      limit = 20
 
   [params.comments]
     enabled = true

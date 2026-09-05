@@ -1,0 +1,28 @@
+{
+  "name": "吉大课程攻略",
+  "short_name": "吉大课程",
+  "description": "吉林大学课程资料索引平台 - 汇总课程资料、往年题、学习经验",
+  "start_url": "/jlu-course-guide/",
+  "scope": "/jlu-course-guide/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#0A0D12",
+  "background_color": "#05070C",
+  "icons": [
+    {
+      "src": "/jlu-course-guide/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/jlu-course-guide/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "reference"],
+  "lang": "zh-CN",
+  "dir": "ltr"
+}

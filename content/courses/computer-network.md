@@ -2,17 +2,24 @@
 title: 计算机网络
 type: docs
 weight: 6
+course_code: "542006"
+difficulty: 3
+semester: "大三上"
+tags: ["专业必修", "网络协议", "应用层"]
+keywords: ["computer network", "jsjwl", "TCP", "IP", "HTTP"]
 ---
 
 # 计算机网络
 
 ## 课程信息
 
-- **课程代码**: 待补充
+- **课程代码**: 542006
 - **学分**: 4
 - **开课学院**: 计算机科学与技术学院
+- **课程类型**: {{< course-tag type="required" text="专业必修" >}}
+- **开课学期**: 大三上
 - **先修课程**: 数据结构、计算机组成原理
-- **难度**: ⭐⭐⭐
+- **难度**: ⭐⭐⭐ (3/5) {{< course-tag type="difficulty-medium" text="中等" >}}
 
 ## 课程简介
 

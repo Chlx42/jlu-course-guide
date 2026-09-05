@@ -2,17 +2,24 @@
 title: 计算机组成原理
 type: docs
 weight: 2
+course_code: "551004"
+difficulty: 4
+semester: "大二下"
+tags: ["专业必修", "硬件基础", "原理课"]
+keywords: ["computer organization", "jsjzcyl", "CPU", "存储器", "指令系统"]
 ---
 
 # 计算机组成原理
 
 ## 课程信息
 
-- **课程代码**: 待补充
+- **课程代码**: 551004
 - **学分**: 4
 - **开课学院**: 计算机科学与技术学院
+- **课程类型**: {{< course-tag type="required" text="专业必修" >}}
+- **开课学期**: 大二下
 - **先修课程**: 数字逻辑
-- **难度**: ⭐⭐⭐⭐
+- **难度**: ⭐⭐⭐⭐ (4/5) {{< course-tag type="difficulty-hard" text="较难" >}}
 
 ## 资料链接
 

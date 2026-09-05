@@ -1,0 +1,29 @@
+name: 检查链接有效性
+
+on:
+  schedule:
+    # 每月 1 号凌晨 3:00 检查
+    - cron: '0 3 1 * *'
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check links in markdown files
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --verbose --no-progress 'content/**/*.md' 'README.md'
+          fail: false  # 不因为失效链接而失败,只记录
+
+      - name: Create issue if broken links found
+        if: env.lychee_exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: '🔗 发现失效链接'
+          content-filepath: ./lychee/out.md
+          labels: 'maintenance, links'

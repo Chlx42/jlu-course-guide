@@ -2,17 +2,24 @@
 title: 操作系统
 type: docs
 weight: 3
+course_code: "542005"
+difficulty: 4
+semester: "大三上"
+tags: ["专业必修", "系统原理", "进程管理"]
+keywords: ["operating system", "os", "czxt", "进程", "线程", "内存管理"]
 ---
 
 # 操作系统
 
 ## 课程信息
 
-- **课程代码**: 待补充
+- **课程代码**: 542005
 - **学分**: 4
 - **开课学院**: 计算机科学与技术学院
+- **课程类型**: {{< course-tag type="required" text="专业必修" >}}
+- **开课学期**: 大三上
 - **先修课程**: 数据结构、计算机组成原理
-- **难度**: ⭐⭐⭐⭐
+- **难度**: ⭐⭐⭐⭐ (4/5) {{< course-tag type="difficulty-hard" text="较难" >}}
 
 ## 课程简介
 

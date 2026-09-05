@@ -2,17 +2,24 @@
 title: 算法设计与分析
 type: docs
 weight: 7
+course_code: "542009"
+difficulty: 4
+semester: "大三下"
+tags: ["专业必修", "算法", "复杂度分析"]
+keywords: ["algorithm", "sf", "动态规划", "贪心", "分治"]
 ---
 
 # 算法设计与分析
 
 ## 课程信息
 
-- **课程代码**: 待补充
+- **课程代码**: 542009
 - **学分**: 3
 - **开课学院**: 计算机科学与技术学院
+- **课程类型**: {{< course-tag type="required" text="专业必修" >}}
+- **开课学期**: 大三下
 - **先修课程**: 数据结构、离散数学
-- **难度**: ⭐⭐⭐⭐
+- **难度**: ⭐⭐⭐⭐ (4/5) {{< course-tag type="difficulty-hard" text="较难" >}}
 
 ## 课程简介
 

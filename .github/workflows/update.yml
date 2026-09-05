@@ -1,0 +1,45 @@
+name: 定时更新课程资料
+
+on:
+  schedule:
+    # 每周一凌晨 2:17 自动运行 (避开整点高峰)
+    - cron: '17 2 * * 1'
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  update-courses:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run aggregation script
+        run: python3 scripts/aggregate_courses.py
+
+      - name: Check for changes
+        id: verify-diff
+        run: |
+          if git diff --quiet content/courses/generated/ course_data.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push if changed
+        if: steps.verify-diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/courses/generated/ course_data.json
+          git commit -m "🤖 自动更新课程资料索引
+
+          由 GitHub Actions 自动触发
+
+          Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>"
+          git push

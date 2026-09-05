@@ -1,0 +1,22 @@
+{{- $type := .Get "type" -}}
+{{- $text := .Get "text" -}}
+
+{{- $colors := dict
+  "difficulty-easy" "hx-bg-green-100 hx-text-green-800 dark:hx-bg-green-900 dark:hx-text-green-200"
+  "difficulty-medium" "hx-bg-yellow-100 hx-text-yellow-800 dark:hx-bg-yellow-900 dark:hx-text-yellow-200"
+  "difficulty-hard" "hx-bg-red-100 hx-text-red-800 dark:hx-bg-red-900 dark:hx-text-red-200"
+  "required" "hx-bg-blue-100 hx-text-blue-800 dark:hx-bg-blue-900 dark:hx-text-blue-200"
+  "elective" "hx-bg-purple-100 hx-text-purple-800 dark:hx-bg-purple-900 dark:hx-text-purple-200"
+  "theory" "hx-bg-gray-100 hx-text-gray-800 dark:hx-bg-gray-800 dark:hx-text-gray-200"
+  "lab" "hx-bg-indigo-100 hx-text-indigo-800 dark:hx-bg-indigo-900 dark:hx-text-indigo-200"
+  "project" "hx-bg-pink-100 hx-text-pink-800 dark:hx-bg-pink-900 dark:hx-text-pink-200"
+-}}
+
+{{- $colorClass := index $colors $type -}}
+{{- if not $colorClass -}}
+  {{- $colorClass = "hx-bg-gray-100 hx-text-gray-800 dark:hx-bg-gray-800 dark:hx-text-gray-200" -}}
+{{- end -}}
+
+<span class="hx-inline-flex hx-items-center hx-px-2.5 hx-py-0.5 hx-rounded-full hx-text-xs hx-font-medium {{ $colorClass }}">
+  {{ $text }}
+</span>

@@ -1,0 +1,28 @@
+{{- if templates.Exists "partials/head-custom.html" -}}
+  {{- partial "head-custom.html" . -}}
+{{- end -}}
+
+<!-- 移动端优化样式 -->
+<link rel="stylesheet" href="{{ "css/mobile.css" | absURL }}">
+
+<!-- 移动端视口设置 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
+<!-- iOS Safari 优化 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="吉大课程攻略">
+
+<!-- Android Chrome 优化 -->
+<meta name="theme-color" content="#0A0D12">
+<meta name="mobile-web-app-capable" content="yes">
+
+<!-- 禁止自动识别电话号码 -->
+<meta name="format-detection" content="telephone=no">
+
+<!-- PWA 支持 (可选,未来扩展) -->
+<link rel="manifest" href="{{ "manifest.json" | absURL }}">
+
+<!-- 预连接到资源域名 -->
+<link rel="preconnect" href="https://github.com">
+<link rel="dns-prefetch" href="https://github.com">

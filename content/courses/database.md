@@ -2,17 +2,24 @@
 title: 数据库系统
 type: docs
 weight: 5
+course_code: "542008"
+difficulty: 3
+semester: "大三上"
+tags: ["专业必修", "SQL", "课程设计"]
+keywords: ["database", "sjk", "MySQL", "关系数据库", "事务"]
 ---
 
 # 数据库系统
 
 ## 课程信息
 
-- **课程代码**: 待补充
+- **课程代码**: 542008
 - **学分**: 4
 - **开课学院**: 计算机科学与技术学院 / 软件学院
+- **课程类型**: {{< course-tag type="required" text="专业必修" >}}
+- **开课学期**: 大三上
 - **先修课程**: 数据结构
-- **难度**: ⭐⭐⭐
+- **难度**: ⭐⭐⭐ (3/5) {{< course-tag type="difficulty-medium" text="中等" >}}
 
 ## 课程简介
 

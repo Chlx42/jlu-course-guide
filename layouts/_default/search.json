@@ -1,0 +1,97 @@
+{{- $pages := where .Site.Pages "Kind" "in" (slice "page" "section") -}}
+{{- $pages = where $pages "Params.excludeSearch" "!=" true -}}
+{{- $pages = where $pages "Content" "!=" "" -}}
+
+{{- $searchData := slice -}}
+
+{{- range $index, $page := $pages -}}
+  {{- $title := $page.Title -}}
+  {{- $content := $page.Plain -}}
+  {{- $permalink := $page.Permalink -}}
+  {{- $relPermalink := $page.RelPermalink -}}
+
+  {{- /* 提取课程代码 */ -}}
+  {{- $courseCode := "" -}}
+  {{- if $page.Params.course_code -}}
+    {{- $courseCode = $page.Params.course_code -}}
+  {{- else -}}
+    {{- /* 从内容中提取课程代码 */ -}}
+    {{- $codePattern := "课程代码\\*\\*:\\s*(\\d+)" -}}
+    {{- $matches := findRE $codePattern $content 1 -}}
+    {{- if $matches -}}
+      {{- $courseCode = index (split (index $matches 0) ": ") 1 -}}
+      {{- $courseCode = replaceRE "\\*\\*" "" $courseCode -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- /* 提取难度 */ -}}
+  {{- $difficulty := "" -}}
+  {{- if $page.Params.difficulty -}}
+    {{- $difficulty = $page.Params.difficulty -}}
+  {{- end -}}
+
+  {{- /* 提取学期 */ -}}
+  {{- $semester := "" -}}
+  {{- if $page.Params.semester -}}
+    {{- $semester = $page.Params.semester -}}
+  {{- end -}}
+
+  {{- /* 构建搜索关键词 */ -}}
+  {{- $keywords := slice -}}
+  {{- with $page.Params.tags -}}
+    {{- $keywords = . -}}
+  {{- end -}}
+  {{- with $page.Params.keywords -}}
+    {{- $keywords = union $keywords . -}}
+  {{- end -}}
+
+  {{- /* 添加同义词支持 */ -}}
+  {{- $synonyms := dict
+    "数据结构" "data structure sjjg"
+    "操作系统" "operating system czxt os"
+    "计算机组成原理" "computer organization jsjzcyl"
+    "编译原理" "compiler byyl"
+    "计算机网络" "computer network jsjwl"
+    "数据库" "database sjk"
+    "算法" "algorithm sf"
+    "离散数学" "discrete math lssx"
+    "概率论" "probability gll"
+    "微积分" "calculus wjf"
+    "线性代数" "linear algebra xxds"
+    "人工智能" "ai artificial intelligence rgzn"
+    "软件工程" "software engineering rjgc"
+    "Java" "java"
+    "C语言" "c language cyy"
+    "Python" "python py"
+  -}}
+
+  {{- $searchKeywords := $title -}}
+  {{- range $key, $value := $synonyms -}}
+    {{- if in $title $key -}}
+      {{- $searchKeywords = printf "%s %s" $searchKeywords $value -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- /* 添加课程代码到搜索关键词 */ -}}
+  {{- if $courseCode -}}
+    {{- $searchKeywords = printf "%s %s" $searchKeywords $courseCode -}}
+  {{- end -}}
+
+  {{- /* 构建搜索数据项 */ -}}
+  {{- $item := dict
+    "id" $index
+    "title" $title
+    "content" $content
+    "permalink" $permalink
+    "relPermalink" $relPermalink
+    "courseCode" $courseCode
+    "difficulty" $difficulty
+    "semester" $semester
+    "keywords" (delimit $keywords ", ")
+    "searchKeywords" $searchKeywords
+  -}}
+
+  {{- $searchData = $searchData | append $item -}}
+{{- end -}}
+
+{{- $searchData | jsonify -}}
