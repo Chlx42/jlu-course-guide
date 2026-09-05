@@ -1,0 +1,11 @@
+{{ define "main" }}
+  {{ .Content }}
+
+  <div class="hx-mt-12 hx-pt-8 hx-border-t hx-border-gray-200 dark:hx-border-gray-800">
+    <h2 class="hx-text-2xl hx-font-bold hx-mb-4">课程评价与讨论</h2>
+    <div class="hx-mb-4 hx-p-4 hx-bg-blue-50 dark:hx-bg-blue-900/20 hx-rounded-lg">
+      <p class="hx-text-sm">💬 欢迎分享你的学习经验、课程建议或提问。评价请客观友善,仅评课程不评人。</p>
+    </div>
+    {{ partial "comments.html" . }}
+  </div>
+{{ end }}

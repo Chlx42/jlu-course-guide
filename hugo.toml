@@ -1,0 +1,75 @@
+baseURL = 'https://<username>.github.io/jlu-course-guide/'
+languageCode = 'zh-cn'
+title = '吉大课程攻略'
+theme = 'hextra'
+
+enableRobotsTXT = true
+enableGitInfo = true
+enableEmoji = true
+hasCJKLanguage = true
+
+[services]
+  [services.googleAnalytics]
+    ID = ''
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+  section = ['HTML', 'RSS']
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+
+[menu]
+  [[menu.main]]
+    name = "课程资料"
+    pageRef = "/courses"
+    weight = 1
+  [[menu.main]]
+    name = "按学院"
+    pageRef = "/colleges"
+    weight = 2
+  [[menu.main]]
+    name = "关于"
+    pageRef = "/about"
+    weight = 3
+  [[menu.sidebar]]
+    name = "更多"
+    params.icon = "sparkles"
+    weight = 4
+  [[menu.sidebar]]
+    name = "GitHub"
+    pageRef = "https://github.com/<username>/jlu-course-guide"
+    params.icon = "github"
+    weight = 5
+
+[params]
+  description = "吉林大学课程攻略共享计划 - 汇总课程资料、往年题、学习经验"
+
+  [params.navbar]
+    displayTitle = true
+    displayLogo = false
+
+  [params.footer]
+    displayCopyright = true
+    displayPoweredBy = true
+
+  [params.search]
+    enable = true
+    type = "flexsearch"
+
+    [params.search.flexsearch]
+      index = "content"
+      tokenize = "forward"
+
+  [params.comments]
+    enabled = true
+
+    [params.comments.giscus]
+      repo = "Chlx42/jlu-course-guide"
+      repoId = "R_kgDOUPCO3w"
+      category = "General"
+      categoryId = "DIC_kwDOUPCO384DE7Cx"
