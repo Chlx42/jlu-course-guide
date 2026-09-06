@@ -1,4 +1,4 @@
-baseURL = 'https://<username>.github.io/jlu-course-guide/'
+baseURL = 'https://chlx42.github.io/jlu-course-guide/'
 languageCode = 'zh-cn'
 title = '吉大课程攻略'
 theme = 'hextra'
@@ -42,7 +42,7 @@ hasCJKLanguage = true
     weight = 4
   [[menu.sidebar]]
     name = "GitHub"
-    pageRef = "https://github.com/<username>/jlu-course-guide"
+    pageRef = "https://github.com/Chlx42/jlu-course-guide"
     params.icon = "github"
     weight = 5
 
