@@ -94,7 +94,7 @@ hugo server -D
 python3 scripts/aggregate_courses.py
 
 # 查看生成的文件
-ls content/courses/generated/
+ls content/courses/core/
 ```
 
 ## 📋 开发规范
@@ -102,8 +102,8 @@ ls content/courses/generated/
 ### 文件组织
 
 - 手写的核心课程页面放在 `content/courses/`
-- 自动生成的课程页面放在 `content/courses/generated/`
-- 不要直接编辑 `generated/` 下的文件,它们会被脚本覆盖
+- 课程页面按分类放在 `content/courses/` 下的子目录中(core/programming/foundation/elective/practice/general/semesters/resources)
+- 新增课程时请放到合适的分类目录,并在 front matter 里补全课程代码、学分等信息
 
 ### Markdown 规范
 

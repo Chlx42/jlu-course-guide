@@ -360,17 +360,40 @@ def main():
     print()
 
     # 生成课程页面
-    output_dir = Path("content/courses/generated")
+    # 注意: 课程页面现已按分类存放(content/courses/{core,programming,...}),
+    # 聚合脚本只补充"尚不存在"的课程页,不会覆盖或重复生成已有页面,
+    # 避免再次出现同一课程多个页面的情况。
+    output_dir = Path("content/courses/_incoming")
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # 收集现有课程页的标题/文件名,用于去重
+    existing = set()
+    courses_dir = Path("content/courses")
+    for p in courses_dir.rglob("*.md"):
+        existing.add(p.stem.lower())
+        m = re.match(r"^---\n(.*?)\n---", p.read_text(encoding="utf-8"), re.S)
+        if m:
+            tm = re.search(r'^title:\s*"?([^"\n]*)"?', m.group(1), re.M)
+            if tm:
+                existing.add(tm.group(1).strip().lower())
+
     generated_count = 0
+    skipped_count = 0
     for course_name, resources in sorted(all_courses.items()):
         if len(resources) < 1:  # 至少一个资源就生成
+            continue
+
+        # 已有同名课程页(标题或文件名匹配)则跳过,避免产生重复页面
+        if course_name.lower() in existing:
+            skipped_count += 1
             continue
 
         filename = course_name.lower().replace(" ", "-").replace("/", "-")
         # 移除特殊字符
         filename = re.sub(r'[^\w\s-]', '', filename)
+        if filename.lower() in existing:
+            skipped_count += 1
+            continue
         filepath = output_dir / f"{filename}.md"
 
         content = generate_course_page(course_name, resources)
@@ -391,8 +414,8 @@ def main():
         json.dump(all_courses, f, ensure_ascii=False, indent=2)
 
     print()
-    print(f"✨ 完成! 共生成 {generated_count} 个课程页面")
-    print(f"📁 课程页面已生成到 content/courses/generated/")
+    print(f"✨ 完成! 新生成 {generated_count} 个课程页面,跳过 {skipped_count} 个已有课程")
+    print(f"📁 新页面已生成到 content/courses/_incoming/ (请人工审核后移入对应分类目录)")
     print(f"📄 原始数据已保存到 course_data.json")
     print()
     print("💡 提示: 查看 course_data.json 可以看到课程名称映射详情")

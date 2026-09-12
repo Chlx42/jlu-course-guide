@@ -53,15 +53,15 @@ layout: hextra-home
 ### 计算机专业核心课
 
 {{< cards >}}
-  {{< card link="courses/data-structure/" title="数据结构" subtitle="难度 ⭐⭐⭐ | 编程基础必修" >}}
-  {{< card link="courses/operating-system/" title="操作系统" subtitle="难度 ⭐⭐⭐⭐ | 理论+实验" >}}
-  {{< card link="courses/compiler/" title="编译原理" subtitle="难度 ⭐⭐⭐⭐⭐ | 大作业量巨大" >}}
+  {{< card link="courses/core/data-structure/" title="数据结构" subtitle="难度 ⭐⭐⭐ | 编程基础必修" >}}
+  {{< card link="courses/core/operating-system/" title="操作系统" subtitle="难度 ⭐⭐⭐⭐ | 理论+实验" >}}
+  {{< card link="courses/core/compiler/" title="编译原理" subtitle="难度 ⭐⭐⭐⭐⭐ | 大作业量巨大" >}}
 {{< /cards >}}
 
 {{< cards >}}
-  {{< card link="courses/computer-network/" title="计算机网络" subtitle="难度 ⭐⭐⭐ | 协议与应用" >}}
-  {{< card link="courses/database/" title="数据库系统" subtitle="难度 ⭐⭐⭐ | 理论+实践" >}}
-  {{< card link="courses/algorithm/" title="算法设计" subtitle="难度 ⭐⭐⭐⭐ | 思想与分析" >}}
+  {{< card link="courses/core/computer-network/" title="计算机网络" subtitle="难度 ⭐⭐⭐ | 协议与应用" >}}
+  {{< card link="courses/core/database/" title="数据库系统" subtitle="难度 ⭐⭐⭐ | 理论+实践" >}}
+  {{< card link="courses/core/algorithm/" title="算法设计" subtitle="难度 ⭐⭐⭐⭐ | 思想与分析" >}}
 {{< /cards >}}
 
 </div>

@@ -30,7 +30,7 @@ hasCJKLanguage = true
     weight = 1
   [[menu.main]]
     name = "按学院"
-    pageRef = "/colleges"
+    pageRef = "/courses/by-department"
     weight = 2
   [[menu.main]]
     name = "关于"
