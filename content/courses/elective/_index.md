@@ -1,12 +1,12 @@
 ---
 title: 专业选修
 weight: 4
-description: 人工智能、软件工程、图形学等方向选修课
+description: 各方向的选修课
 sidebar:
   open: false
 ---
 
-人工智能、软件工程、图形学等方向选修课:
+分方向后的选修课,选课前先翻翻评价:
 
 共 14 门:
 

@@ -1,12 +1,12 @@
 ---
 title: 程序设计
 weight: 2
-description: C/C++、Java、面向对象等编程课程与程序设计基础
+description: C、C++、Java 等编程课
 sidebar:
   open: false
 ---
 
-从 C 语言到面向对象,编程入门与进阶课程:
+写代码的课,从第一门 C 语言开始:
 
 共 5 门:
 

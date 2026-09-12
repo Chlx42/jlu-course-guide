@@ -1,12 +1,12 @@
 ---
 title: 实践与课程设计
 weight: 5
-description: 实验课、课程设计与综合实践
+description: 实验课和课程设计
 sidebar:
   open: false
 ---
 
-实验课、课程设计与综合实践项目:
+实验和课设:
 
 共 7 门:
 

@@ -14,33 +14,33 @@ layout: hextra-home
 
   <div class="hx-mb-10">
 {{< hextra/hero-subtitle >}}
-  76 门课程、5 个资料库、一次搜索全找到&nbsp;<br class="sm:hx-block hx:hidden" />吉大人自己的课程攻略站
+  76 门课的往年题、笔记、经验,都在这里&nbsp;<br class="sm:hx-block hx:hidden" />吉大人自己的课程攻略站
 {{< /hextra/hero-subtitle >}}
   </div>
 
   <div class="home-hero-actions hx-mb-6">
-{{< hextra/hero-button text="🔍 搜索课程" link="/courses" >}}
-{{< hextra/hero-button text="📚 按学院浏览" link="/courses/by-department" >}}
+{{< hextra/hero-button text="🔍 搜索课程" link="courses" >}}
+{{< hextra/hero-button text="📚 按学院浏览" link="courses/by-department" >}}
   </div>
 
-  <p class="home-hero-caption">前人走过的弯路,后人不该再走。这些本该公开、易得的信息,不再靠运气和人脉。</p>
+  <p class="home-hero-caption">以前找个往年题,得在群里等学长回消息,或者挨个仓库翻。现在都在这里,查一下就行。</p>
 </div>
 
 <div class="home-section">
 {{< hextra/feature-grid >}}
   {{< hextra/feature-card
     title="往年题在哪?这里全有"
-    subtitle="不用再问学长、翻群文件。76 门课程的资料链接,来自 5 个开源仓库的精华"
+    subtitle="五个资料仓库都翻了一遍,按课程归好,进来搜一下就有"
     style="background: radial-gradient(ellipse at 50% 0%, hsla(211, 100%, 50%, 0.06), transparent 70%);"
   >}}
   {{< hextra/feature-card
     title="这门课到底难不难?"
-    subtitle="选课前看看难度评级、给分情况、作业量。学长学姐踩过的坑,你不用再踩一遍"
+    subtitle="难度、给分、作业量,选课前看看学长学姐怎么说"
     style="background: radial-gradient(ellipse at 50% 0%, hsla(359, 82%, 60%, 0.05), transparent 70%);"
   >}}
   {{< hextra/feature-card
     title="考前怎么复习?"
-    subtitle="考试重点、复习建议、往届经验,期末周最需要的东西都在评论区"
+    subtitle="重点、复习建议、往届经验,都收在每门课的评论区里"
     style="background: radial-gradient(ellipse at 50% 0%, hsla(33, 100%, 50%, 0.06), transparent 70%);"
   >}}
 {{< /hextra/feature-grid >}}
@@ -68,7 +68,7 @@ layout: hextra-home
 
 ## ✨ 这是怎么做到的?
 
-我们把分散在 5 个 GitHub 仓库里的课程资料统一索引了:
+把 5 个 GitHub 仓库里的资料,按课程归到了一起:
 
 - [JLU-CS-Courses](https://github.com/Geraldxm/JLU-CS-Courses) - 计算机学院
 - [JLU-Courses](https://github.com/JLU-NightsWatch/JLU-Courses) - 软件学院

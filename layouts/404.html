@@ -1,0 +1,29 @@
+{{ define "main" }}
+  <main id="content" class="error-page">
+    <p class="error-eyebrow">页面走丢了</p>
+    <p class="error-code" aria-hidden="true">404</p>
+    <h1 class="error-title">这里什么都没有</h1>
+    <p class="error-desc">
+      你访问的页面不存在,或者已经在站点整理时搬了家。旧课程链接大多会自动跳转,没跳到的可以从下面入口重新找到。
+    </p>
+
+    <div class="error-actions">
+      <a class="error-btn error-btn--primary" href="{{ "" | relURL }}">返回首页</a>
+      <a class="error-btn" href="{{ "courses" | relURL }}">课程资料</a>
+      <a class="error-btn" href="{{ "courses/by-department" | relURL }}">按学院浏览</a>
+    </div>
+
+    <div class="error-hot">
+      <p class="error-hot-label">热门课程</p>
+      <div class="error-hot-links">
+        <a href="{{ "courses/core/data-structure" | relURL }}">数据结构</a>
+        <a href="{{ "courses/core/operating-system" | relURL }}">操作系统</a>
+        <a href="{{ "courses/core/compiler" | relURL }}">编译原理</a>
+        <a href="{{ "courses/core/database" | relURL }}">数据库系统</a>
+        <a href="{{ "courses/core/computer-network" | relURL }}">计算机网络</a>
+      </div>
+    </div>
+
+    <p class="error-hint">也可以按 <kbd>Ctrl</kbd> <kbd>K</kbd>(Mac 为 <kbd>⌘</kbd> <kbd>K</kbd>)搜索全站课程。</p>
+  </main>
+{{ end }}

@@ -1,12 +1,12 @@
 ---
 title: 按学期归档
 weight: 7
-description: 按学期整理的资料合集,适合按进度查找
+description: 按学期整理的资料合集
 sidebar:
   open: false
 ---
 
-按学期整理的资料合集,适合按当前进度查找:
+想不起来课程名,按学期翻也行:
 
 共 6 门:
 

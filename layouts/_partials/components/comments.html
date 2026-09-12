@@ -1,0 +1,16 @@
+{{- /* 覆盖 hextra 的 comments 组件:仅内容页显示,列表页不显示评论区 */ -}}
+{{- if .IsPage -}}
+  {{- $enableComments := site.Params.comments.enable | default false -}}
+  {{ if not (eq .Params.comments nil) }}
+    {{ $enableComments = .Params.comments }}
+  {{ end }}
+  {{- if $enableComments -}}
+    <div class="comments-section">
+      <h2>课程评价与讨论</h2>
+      <div class="comments-note">
+        <p>💬 有经验想分享、有问题想问,写在下面就行。只评课,不评人。</p>
+      </div>
+    </div>
+    {{- partial "components/giscus.html" . -}}
+  {{- end -}}
+{{- end -}}

@@ -74,10 +74,12 @@ hasCJKLanguage = true
       limit = 20
 
   [params.comments]
-    enabled = true
+    enable = true
+    type = "giscus"
 
     [params.comments.giscus]
       repo = "Chlx42/jlu-course-guide"
       repoId = "R_kgDOUPCO3w"
       category = "General"
       categoryId = "DIC_kwDOUPCO384DE7Cx"
+      inputPosition = "bottom"

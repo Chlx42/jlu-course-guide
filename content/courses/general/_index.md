@@ -1,12 +1,12 @@
 ---
 title: 通识课程
 weight: 6
-description: 数学、物理、思政、英语等通识必修与选修
+description: 微积分、物理、思政、英语等通识课
 sidebar:
   open: false
 ---
 
-数学、物理、思政、英语等通识必修与选修:
+全校都要上的:
 
 共 11 门:
 

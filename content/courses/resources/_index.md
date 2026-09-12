@@ -1,12 +1,12 @@
 ---
 title: 学习资料
 weight: 8
-description: 模板、笔记、经验分享等通用学习资源
+description: 模板、笔记、经验分享
 sidebar:
   open: false
 ---
 
-课程模板、笔记合集、经验分享等通用学习资源:
+模板、笔记、经验帖这类不好归类的,都在这:
 
 共 5 门:
 

@@ -1,12 +1,12 @@
 ---
 title: 专业基础
 weight: 3
-description: 导论、离散数学、数字逻辑等专业基础课程
+description: 导论、离散数学等基础课
 sidebar:
   open: false
 ---
 
-导论、离散数学、数字逻辑等专业打底课程:
+打底用的:
 
 共 6 门:
 

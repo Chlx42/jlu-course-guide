@@ -51,6 +51,11 @@ jobs:
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
 
+      - name: Check internal links
+        env:
+          HUGO_BASEURL: ${{ steps.pages.outputs.base_url }}/
+        run: python3 scripts/check_internal_links.py public
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

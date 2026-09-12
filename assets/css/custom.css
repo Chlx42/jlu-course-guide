@@ -707,7 +707,164 @@ footer.hextra-footer {
 }
 
 /* ------------------------------------------------------------
-   16. Mobile refinements
+   16. 404 — centered recovery page, same material language
+   ------------------------------------------------------------ */
+.error-page {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: clamp(3rem, 10vh, 6rem) 1.25rem 3rem;
+  text-align: center;
+}
+
+.error-eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: hsl(var(--primary-hue), var(--primary-saturation), 45%);
+  margin: 0 0 0.5rem;
+}
+
+.error-code {
+  font-size: clamp(4.5rem, 16vw, 7rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0;
+  background: linear-gradient(
+    180deg,
+    hsl(var(--primary-hue), var(--primary-saturation), 45%),
+    hsl(var(--primary-hue), var(--primary-saturation), 65%)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Dark canvas eats mid-lightness blues — lift the gradient so it stays clearly blue */
+html.dark .error-code {
+  background: linear-gradient(
+    180deg,
+    hsl(var(--primary-hue), 100%, 58%),
+    hsl(var(--primary-hue), 100%, 74%)
+  );
+}
+
+.error-title {
+  font-size: 1.5rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.error-desc {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--apple-text-secondary);
+  margin: 0 auto 1.75rem;
+}
+
+.error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2.25rem;
+}
+
+.error-btn {
+  display: inline-block;
+  padding: 0.55rem 1.25rem;
+  border-radius: 999px;
+  background: var(--apple-surface-2);
+  border: 1px solid var(--apple-hairline);
+  color: var(--apple-text) !important;
+  font-weight: 500;
+  text-decoration: none !important;
+  transition: transform var(--apple-press-duration) ease-out,
+    background-color var(--apple-hover-duration) var(--apple-ease),
+    box-shadow var(--apple-hover-duration) var(--apple-ease);
+}
+
+.error-btn:hover {
+  background: var(--apple-hairline);
+}
+
+.error-btn:active {
+  transform: scale(0.97);
+}
+
+.error-btn--primary {
+  background: hsl(var(--primary-hue), var(--primary-saturation), 45%);
+  border-color: transparent;
+  color: #fff !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.error-btn--primary:hover {
+  background: hsl(var(--primary-hue), var(--primary-saturation), 40%);
+  box-shadow: 0 4px 14px hsla(var(--primary-hue), var(--primary-saturation), 45%, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.error-hot {
+  margin-bottom: 1.75rem;
+}
+
+.error-hot-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--apple-text-secondary);
+  margin: 0 0 0.625rem;
+}
+
+.error-hot-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.error-hot-links a {
+  display: inline-block;
+  padding: 0.3rem 0.875rem;
+  border-radius: 999px;
+  background: hsla(211, 100%, 45%, 0.08);
+  color: hsl(var(--primary-hue), var(--primary-saturation), 42%) !important;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none !important;
+  transition: background-color var(--apple-hover-duration) var(--apple-ease),
+    transform var(--apple-press-duration) ease-out;
+}
+
+.error-hot-links a:hover {
+  background: hsla(211, 100%, 45%, 0.14);
+}
+
+.error-hot-links a:active {
+  transform: scale(0.96);
+}
+
+.error-hint {
+  font-size: 0.8125rem;
+  color: var(--apple-text-secondary);
+}
+
+.error-hint kbd {
+  display: inline-block;
+  padding: 0.1em 0.45em;
+  border-radius: 5px;
+  background: var(--apple-surface);
+  border: 1px solid var(--apple-hairline);
+  box-shadow: 0 1px 0 var(--apple-hairline-strong);
+  font-family: inherit;
+  font-size: 0.75rem;
+}
+
+/* ------------------------------------------------------------
+   17. Mobile refinements
    ------------------------------------------------------------ */
 @media (max-width: 768px) {
   body {
