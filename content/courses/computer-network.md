@@ -9,8 +9,6 @@ tags: ["专业必修", "网络协议", "应用层"]
 keywords: ["computer network", "jsjwl", "TCP", "IP", "HTTP"]
 ---
 
-# 计算机网络
-
 ## 课程信息
 
 - **课程代码**: 542006

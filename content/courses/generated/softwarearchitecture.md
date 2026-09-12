@@ -3,8 +3,6 @@ title: SoftwareArchitecture
 type: docs
 ---
 
-# SoftwareArchitecture
-
 ## 课程信息
 
 - **课程代码**: 待补充

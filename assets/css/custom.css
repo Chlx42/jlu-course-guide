@@ -1,0 +1,745 @@
+/* ============================================================
+   Apple Design System — jlu-course-guide
+   Materials · Typography · Motion
+   Principles translated from "Designing Fluid Interfaces":
+   instant press feedback, translucent chrome, size-specific
+   tracking, soft boundaries, and respect for reduced motion.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. Design tokens
+   ------------------------------------------------------------ */
+:root {
+  /* Apple blue accent (systemBlue, marketing #0071e3) */
+  --primary-hue: 211deg;
+  --primary-saturation: 100%;
+  --primary-lightness: 45%;
+
+  /* Neutrals */
+  --apple-bg: #fbfbfd;
+  --apple-surface: #ffffff;
+  --apple-surface-2: #f5f5f7;
+  --apple-text: #1d1d1f;
+  --apple-text-secondary: #6e6e73;
+  --apple-hairline: rgba(0, 0, 0, 0.09);
+  --apple-hairline-strong: rgba(0, 0, 0, 0.14);
+
+  /* Materials */
+  --apple-material-light: rgba(251, 251, 253, 0.72);
+  --apple-material-dark: rgba(18, 18, 20, 0.68);
+  --apple-blur: saturate(180%) blur(20px);
+
+  /* Motion — critically damped feel, interruptible by design */
+  --apple-ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --apple-ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --apple-press-duration: 100ms;
+  --apple-hover-duration: 220ms;
+}
+
+html.dark {
+  --apple-bg: #0a0a0c;
+  --apple-surface: #161618;
+  --apple-surface-2: #1d1d20;
+  --apple-text: #f5f5f7;
+  --apple-text-secondary: #a1a1a6;
+  --apple-hairline: rgba(255, 255, 255, 0.1);
+  --apple-hairline-strong: rgba(255, 255, 255, 0.16);
+}
+
+/* ------------------------------------------------------------
+   2. Base — typography & canvas
+   ------------------------------------------------------------ */
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "SF Pro Display", "PingFang SC", "Helvetica Neue", "Segoe UI",
+    "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--apple-bg);
+  color: var(--apple-text);
+  font-feature-settings: "kern" 1;
+  transition: background-color 300ms var(--apple-ease),
+    color 300ms var(--apple-ease);
+}
+
+::selection {
+  background: hsla(var(--primary-hue), var(--primary-saturation), 55%, 0.25);
+}
+
+:focus-visible {
+  outline: 2px solid hsl(var(--primary-hue), var(--primary-saturation), 48%);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Instant press feedback on every interactive surface —
+   feedback lives on pointer-down, never only at the end. */
+a,
+button,
+summary,
+[role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:active,
+button:active,
+summary:active {
+  opacity: 0.7;
+  transition: opacity var(--apple-press-duration) ease-out;
+}
+
+/* ------------------------------------------------------------
+   3. Typography — tracking is size-specific, never one value
+   ------------------------------------------------------------ */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.015em;
+  color: var(--apple-text);
+}
+
+main h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.15; font-weight: 700; letter-spacing: -0.022em; }
+main h2 { font-size: clamp(1.45rem, 3vw, 1.8rem); line-height: 1.25; font-weight: 650; letter-spacing: -0.018em; }
+main h3 { font-size: 1.25rem; line-height: 1.35; font-weight: 600; }
+main h4 { font-size: 1.0625rem; font-weight: 600; }
+
+/* Body copy — CJK breathes a little more */
+:is(.content, #content) :where(p) {
+  margin-top: 1.25rem;
+  line-height: 1.8;
+  color: var(--apple-text);
+}
+
+/* Headings: hierarchy from weight + size + leading as a set.
+   Apple headings are clean — no underlines. */
+:is(.content, #content) :where(h1),
+:is(.content, #content) :where(h2),
+:is(.content, #content) :where(h3),
+:is(.content, #content) :where(h4),
+:is(.content, #content) :where(h5),
+:is(.content, #content) :where(h6) {
+  color: var(--apple-text);
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+}
+
+:is(.content, #content) :where(h2) {
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0;
+}
+
+:is(.content, #content) :where(h3) {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Markdown lists — restore the rhythm Tailwind preflight removes
+   on the homepage (docs pages already get it from the theme). */
+:is(.content, #content) :where(ul) {
+  margin-top: 1.25rem;
+  padding-left: 1.5rem;
+  list-style: disc;
+}
+
+:is(.content, #content) :where(ol) {
+  margin-top: 1.25rem;
+  padding-left: 1.5rem;
+  list-style: decimal;
+}
+
+:is(.content, #content) :where(li) {
+  margin: 0.4rem 0;
+  line-height: 1.75;
+}
+
+:is(.content, #content) :where(hr) {
+  border-color: var(--apple-hairline);
+}
+
+/* Links — Apple blue, quiet by default, underline on hover.
+   Cards and pill buttons are excluded: they handle their own states. */
+:is(.content, #content) :where(a:not(.hextra-card):not(.hextra-feature-card):not([class*="hx:rounded-full"])) {
+  font-weight: 500;
+  color: hsl(var(--primary-hue), var(--primary-saturation), 42%);
+  text-decoration: none;
+  transition: color var(--apple-hover-duration) var(--apple-ease);
+}
+
+:is(.content, #content) :where(a:not(.hextra-card):not(.hextra-feature-card):not([class*="hx:rounded-full"])):hover {
+  color: hsl(var(--primary-hue), var(--primary-saturation), 32%);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+html.dark :is(.content, #content) :where(a:not(.hextra-card):not(.hextra-feature-card):not([class*="hx:rounded-full"])) {
+  color: hsl(var(--primary-hue), var(--primary-saturation), 68%);
+}
+html.dark :is(.content, #content) :where(a:not(.hextra-card):not(.hextra-feature-card):not([class*="hx:rounded-full"])):hover {
+  color: hsl(var(--primary-hue), var(--primary-saturation), 78%);
+}
+
+/* Inline code — soft gray chip, Apple dev-docs style */
+:is(.content, #content) :where(code):not(:where(pre code)) {
+  background: var(--apple-surface-2) !important;
+  border: 1px solid var(--apple-hairline) !important;
+  border-radius: 6px !important;
+  padding: 0.1em 0.4em;
+  font-weight: 500;
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, monospace;
+}
+
+/* Blockquote — quiet, structural, not italic */
+:is(.content, #content) :where(blockquote) {
+  font-style: normal;
+  font-weight: 400;
+  color: var(--apple-text-secondary);
+  border-color: var(--apple-hairline-strong) !important;
+}
+
+/* Tables — hairline grid, soft header, rounded container */
+:is(.content, #content) :where(table) {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--apple-hairline);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+:is(.content, #content) :where(table) tr {
+  border-color: var(--apple-hairline);
+}
+
+:is(.content, #content) :where(table) th,
+:is(.content, #content) :where(table) td {
+  border-color: var(--apple-hairline) !important;
+}
+
+:is(.content, #content) :where(table) thead {
+  background: var(--apple-surface-2);
+}
+
+:is(.content, #content) :where(table) th {
+  font-weight: 600;
+  color: var(--apple-text);
+}
+
+/* Bare code fences (non-highlighted) — neutral surface, not primary tint */
+:is(.content, #content) :where(pre):not(.hextra-code-block pre) {
+  background: var(--apple-surface-2) !important;
+  border: 1px solid var(--apple-hairline);
+  border-radius: 14px !important;
+  color: var(--apple-text);
+}
+
+/* Images get soft corners */
+:is(.content, #content) :where(img) {
+  border-radius: 12px;
+}
+
+/* ------------------------------------------------------------
+   4. Navbar — translucent material, content scrolls underneath
+   ------------------------------------------------------------ */
+.hextra-nav-container-blur {
+  background: var(--apple-material-light) !important;
+  -webkit-backdrop-filter: var(--apple-blur);
+  backdrop-filter: var(--apple-blur);
+  box-shadow: 0 1px 0 var(--apple-hairline),
+    0 4px 16px rgba(0, 0, 0, 0.03) !important;
+}
+
+html.dark .hextra-nav-container-blur {
+  background: var(--apple-material-dark) !important;
+  box-shadow: 0 1px 0 var(--apple-hairline) !important;
+}
+
+/* Bright top edge — light catching the material */
+.hextra-nav-container-blur::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+}
+html.dark .hextra-nav-container-blur::after {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Nav links — quiet by default, gentle hover, instant press */
+.hextra-nav-container a,
+.hextra-nav-container button {
+  border-radius: 9px;
+  transition: background-color var(--apple-hover-duration) var(--apple-ease),
+    color var(--apple-hover-duration) var(--apple-ease),
+    transform var(--apple-press-duration) ease-out;
+}
+
+.hextra-nav-container a:active,
+.hextra-nav-container button:active {
+  opacity: 1;
+  transform: scale(0.96);
+  transition-duration: var(--apple-press-duration);
+}
+
+.hextra-nav-container a[class*="hover:bg-gray"],
+.hextra-nav-container button[class*="hover:bg-gray"] {
+  will-change: auto;
+}
+
+/* Theme toggle & icon buttons */
+.hextra-theme-toggle,
+.hextra-nav-container nav > a[class*="hx:p-1"] {
+  transition: transform var(--apple-press-duration) ease-out,
+    background-color var(--apple-hover-duration) var(--apple-ease);
+}
+.hextra-theme-toggle:active,
+.hextra-nav-container nav > a[class*="hx:p-1"]:active {
+  transform: scale(0.9);
+}
+
+/* ------------------------------------------------------------
+   5. Hero — large display type, tight leading, pill buttons
+   ------------------------------------------------------------ */
+.hextra-feature-grid h1,
+.hextra-hero-section h1 {
+  letter-spacing: -0.03em;
+}
+
+/* Hero pill buttons (hero-button shortcode carries no class of its
+   own; the buttons are the rounded-full anchors in the hero area) */
+main a.hx\:rounded-full[class*="hx:px-6"] {
+  background-color: hsl(var(--primary-hue), var(--primary-saturation), 45%);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: transform var(--apple-press-duration) ease-out,
+    background-color var(--apple-hover-duration) var(--apple-ease),
+    box-shadow var(--apple-hover-duration) var(--apple-ease);
+}
+
+main a.hx\:rounded-full[class*="hx:px-6"]:hover {
+  background-color: hsl(var(--primary-hue), var(--primary-saturation), 40%);
+  box-shadow: 0 4px 14px hsla(var(--primary-hue), var(--primary-saturation), 45%, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+main a.hx\:rounded-full[class*="hx:px-6"]:active {
+  transform: scale(0.97);
+  transition-duration: var(--apple-press-duration);
+}
+
+/* ------------------------------------------------------------
+   6. Cards — quiet surfaces that respond to touch
+   ------------------------------------------------------------ */
+.hextra-card,
+.hextra-feature-card {
+  background: var(--apple-surface);
+  border-radius: 18px !important;
+  border-color: var(--apple-hairline) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: transform var(--apple-hover-duration) var(--apple-ease-out-quart),
+    box-shadow var(--apple-hover-duration) var(--apple-ease-out-quart),
+    border-color var(--apple-hover-duration) var(--apple-ease);
+  will-change: transform;
+}
+
+html.dark .hextra-card,
+html.dark .hextra-feature-card {
+  background: var(--apple-surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.hextra-card:hover,
+.hextra-feature-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--apple-hairline-strong) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.09),
+    0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+html.dark .hextra-card:hover,
+html.dark .hextra-feature-card:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45),
+    0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Press — grab it and it yields immediately */
+.hextra-card:active,
+.hextra-feature-card:active {
+  transform: translateY(0) scale(0.98);
+  transition-duration: var(--apple-press-duration);
+}
+
+/* Card titles & subtitles — weight + size as a set */
+.hextra-card h3,
+.hextra-feature-card h3 {
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  color: var(--apple-text);
+}
+
+.hextra-card p,
+.hextra-feature-card p {
+  color: var(--apple-text-secondary) !important;
+  line-height: 1.6;
+}
+
+/* Card tag chips */
+.hextra-card-tag {
+  font-weight: 500;
+  border-radius: 999px;
+}
+
+/* course-tag shortcode pills — tinted solid color, not flat gray */
+.course-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.625rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.course-tag--difficulty-easy   { background: hsla(140, 55%, 45%, 0.14); color: hsl(140, 65%, 28%); }
+.course-tag--difficulty-medium { background: hsla(38, 90%, 50%, 0.16);  color: hsl(28, 80%, 32%); }
+.course-tag--difficulty-hard   { background: hsla(359, 82%, 58%, 0.13); color: hsl(358, 70%, 40%); }
+.course-tag--required          { background: hsla(211, 100%, 45%, 0.12); color: hsl(211, 90%, 36%); }
+.course-tag--elective          { background: hsla(265, 85%, 58%, 0.12); color: hsl(265, 75%, 42%); }
+.course-tag--theory            { background: var(--apple-surface-2); color: var(--apple-text-secondary); border: 1px solid var(--apple-hairline); }
+.course-tag--lab               { background: hsla(243, 75%, 59%, 0.11); color: hsl(243, 70%, 45%); }
+.course-tag--project           { background: hsla(330, 80%, 60%, 0.11); color: hsl(330, 75%, 42%); }
+.course-tag--default           { background: var(--apple-surface-2); color: var(--apple-text-secondary); border: 1px solid var(--apple-hairline); }
+
+html.dark .course-tag--difficulty-easy   { background: hsla(140, 55%, 45%, 0.2); color: hsl(140, 60%, 62%); }
+html.dark .course-tag--difficulty-medium { background: hsla(38, 90%, 50%, 0.2);  color: hsl(38, 90%, 65%); }
+html.dark .course-tag--difficulty-hard   { background: hsla(359, 82%, 58%, 0.2); color: hsl(359, 90%, 70%); }
+html.dark .course-tag--required          { background: hsla(211, 100%, 45%, 0.24); color: hsl(211, 100%, 70%); }
+html.dark .course-tag--elective          { background: hsla(265, 85%, 58%, 0.22); color: hsl(265, 95%, 75%); }
+html.dark .course-tag--theory,
+html.dark .course-tag--default           { background: var(--apple-surface-2); color: var(--apple-text-secondary); border: 1px solid var(--apple-hairline); }
+html.dark .course-tag--lab               { background: hsla(243, 75%, 59%, 0.22); color: hsl(243, 95%, 76%); }
+html.dark .course-tag--project           { background: hsla(330, 80%, 60%, 0.2); color: hsl(330, 90%, 74%); }
+
+/* ------------------------------------------------------------
+   7. Search — pill trigger, material dialog
+   ------------------------------------------------------------ */
+.hextra-search-trigger {
+  background: var(--apple-surface-2);
+  border: 1px solid var(--apple-hairline);
+  border-radius: 999px;
+  color: var(--apple-text-secondary);
+  padding: 6px 12px;
+  gap: 8px;
+  transition: background-color var(--apple-hover-duration) var(--apple-ease),
+    border-color var(--apple-hover-duration) var(--apple-ease),
+    transform var(--apple-press-duration) ease-out;
+}
+
+.hextra-search-trigger:hover {
+  background: var(--apple-hairline);
+  border-color: var(--apple-hairline-strong);
+}
+
+.hextra-search-trigger:active {
+  transform: scale(0.97);
+  transition-duration: var(--apple-press-duration);
+}
+
+.hextra-search-trigger-kbd {
+  background: var(--apple-surface);
+  border: 1px solid var(--apple-hairline);
+  border-radius: 5px;
+  box-shadow: 0 1px 0 var(--apple-hairline-strong);
+  font-family: inherit;
+}
+
+/* Dialog — a true sheet: dim scrim + material surface */
+.hextra-search-dialog {
+  border-radius: 18px !important;
+  border: 1px solid var(--apple-hairline);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.22),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.hextra-search-input {
+  font-size: 1rem;
+}
+
+/* ------------------------------------------------------------
+   8. Docs chrome — sidebar, TOC, breadcrumb
+   ------------------------------------------------------------ */
+.hextra-sidebar-container a,
+.hextra-toc a {
+  border-radius: 8px;
+  transition: color var(--apple-hover-duration) var(--apple-ease),
+    background-color var(--apple-hover-duration) var(--apple-ease),
+    transform var(--apple-press-duration) ease-out;
+}
+
+.hextra-toc a:active,
+.hextra-sidebar-container a:active {
+  opacity: 1;
+  transform: scale(0.98);
+  transition-duration: var(--apple-press-duration);
+}
+
+/* Active sidebar item gets weight, not just color */
+.hextra-sidebar-container li[class*="data-[active]"] a,
+.hextra-sidebar-container a[class*="data-[active=true]"],
+.hextra-sidebar-active-item {
+  font-weight: 600;
+}
+
+/* Breadcrumb — quiet path markers */
+.hextra-breadcrumb {
+  color: var(--apple-text-secondary);
+}
+
+/* TOC bottom strip — the theme paints it opaque white with a fake
+   scroll shadow; on our canvas it shows as an empty floating box. */
+.hextra-toc .hx\:sticky.hx\:bottom-0 {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* ------------------------------------------------------------
+   9. Alerts / callouts — tinted material, soft corners
+   ------------------------------------------------------------ */
+.hextra-alert {
+  border-radius: 14px !important;
+  border: 1px solid var(--apple-hairline);
+  backdrop-filter: blur(8px);
+}
+
+/* ------------------------------------------------------------
+   10. Code blocks — rounded monospace surfaces
+   ------------------------------------------------------------ */
+.hextra-code-block pre,
+.hextra-code-block {
+  border-radius: 14px;
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
+    monospace;
+}
+
+.hextra-code-copy-btn {
+  border-radius: 8px;
+  transition: opacity var(--apple-hover-duration) var(--apple-ease),
+    transform var(--apple-press-duration) ease-out;
+}
+
+.hextra-code-copy-btn:active {
+  transform: scale(0.92);
+}
+
+/* ------------------------------------------------------------
+   11. Footer — hairline, quiet, roomy
+   ------------------------------------------------------------ */
+footer.hextra-footer {
+  border-top: 1px solid var(--apple-hairline);
+  background: var(--apple-surface-2);
+}
+
+/* ------------------------------------------------------------
+   12. Scrollbars — thin, overlay-style
+   ------------------------------------------------------------ */
+.hextra-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--apple-hairline-strong) transparent;
+}
+
+.hextra-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.hextra-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--apple-hairline-strong);
+  border-radius: 999px;
+}
+
+.hextra-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ------------------------------------------------------------
+   13. Home hero — centered display composition
+   ------------------------------------------------------------ */
+/* hextra-home wraps .Content in a flex-col items-start container,
+   which shrink-wraps every block to its content width — give the
+   children back the full column. */
+#content > .hx\:flex.hx\:flex-col > * {
+  width: 100%;
+}
+
+.home-hero {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding-top: clamp(2.5rem, 8vh, 5rem);
+  text-align: center;
+}
+
+.home-hero-eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: hsl(var(--primary-hue), var(--primary-saturation), 45%);
+  margin-bottom: 0.75rem;
+}
+
+.home-hero .hextra-feature-grid h1 {
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  line-height: 1.08;
+}
+
+.home-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.875rem;
+}
+
+.home-hero-caption {
+  max-width: 34rem;
+  margin: 0 auto;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--apple-text-secondary);
+}
+
+.home-section {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ------------------------------------------------------------
+   14. Comments section on course pages
+   ------------------------------------------------------------ */
+.comments-section {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--apple-hairline);
+  scroll-margin-top: calc(var(--hextra-navbar-height) + 24px);
+}
+
+.comments-section h2 {
+  font-size: 1.5rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  margin-bottom: 1rem;
+}
+
+.comments-note {
+  background: hsla(211, 100%, 45%, 0.06);
+  border: 1px solid hsla(211, 100%, 45%, 0.14);
+  border-radius: 14px;
+  padding: 0.875rem 1.125rem;
+  margin-bottom: 1.5rem;
+}
+
+.comments-note p {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  margin: 0;
+  color: var(--apple-text-secondary);
+}
+
+/* ------------------------------------------------------------
+   15. Accessibility — gentler equivalents, never "no feedback"
+   ------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 120ms !important;
+  }
+
+  .hextra-card:hover,
+  .hextra-feature-card:hover,
+  .hextra-card:active,
+  .hextra-feature-card:active {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .hextra-nav-container-blur {
+    background: var(--apple-surface) !important;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .hextra-alert {
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --apple-hairline: rgba(0, 0, 0, 0.3);
+    --apple-hairline-strong: rgba(0, 0, 0, 0.5);
+  }
+
+  html.dark {
+    --apple-hairline: rgba(255, 255, 255, 0.3);
+    --apple-hairline-strong: rgba(255, 255, 255, 0.5);
+  }
+
+  .hextra-card,
+  .hextra-feature-card {
+    border-width: 1.5px !important;
+  }
+}
+
+/* ------------------------------------------------------------
+   16. Mobile refinements
+   ------------------------------------------------------------ */
+@media (max-width: 768px) {
+  body {
+    /* Prevent iOS auto-zoom on focus: inputs stay ≥ 16px */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .hextra-card,
+  .hextra-feature-card {
+    border-radius: 16px;
+  }
+
+  /* Larger touch targets for nav */
+  .hextra-nav-container nav {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hextra-search-trigger {
+    padding: 8px 14px;
+  }
+
+  /* Tables scroll horizontally without tearing the page */
+  .hx\:prose table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .hx\:prose table th,
+  .hx\:prose table td {
+    min-width: 84px;
+    padding: 0.5rem 0.75rem;
+  }
+}

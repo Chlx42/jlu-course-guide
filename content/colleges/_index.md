@@ -5,8 +5,6 @@ sidebar:
   open: true
 ---
 
-# 按学院浏览
-
 ## 计算机科学与技术学院
 
 - [课程列表](/colleges/cs)

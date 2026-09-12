@@ -9,8 +9,6 @@ tags: ["专业必修", "硬件基础", "原理课"]
 keywords: ["computer organization", "jsjzcyl", "CPU", "存储器", "指令系统"]
 ---
 
-# 计算机组成原理
-
 ## 课程信息
 
 - **课程代码**: 551004

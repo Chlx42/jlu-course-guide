@@ -4,8 +4,6 @@ type: docs
 weight: 2
 ---
 
-# 按学院浏览课程
-
 {{< cards >}}
   {{< card link="/courses/cs/" title="计算机科学与技术学院" icon="academic-cap" >}}
   {{< card link="/courses/software/" title="软件学院" icon="code" >}}

@@ -3,8 +3,6 @@ title: cet
 type: docs
 ---
 
-# cet
-
 ## 课程信息
 
 - **课程代码**: 待补充

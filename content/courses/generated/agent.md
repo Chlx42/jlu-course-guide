@@ -3,8 +3,6 @@ title: agent
 type: docs
 ---
 
-# agent
-
 ## 课程信息
 
 - **课程代码**: 待补充
