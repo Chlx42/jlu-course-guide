@@ -1,5 +1,19 @@
 # 下一步计划 (Next Steps)
 
+## 🛠️ 2026-09-13 使用者体验优化(链接健康 + 404 页)
+
+- ✅ **修复 61 个站内断链**(用户点击即 404 的硬伤)
+  - `content/courses/_index.md`:卡片链接误带 `courses/` 前缀,渲染成 `/courses/courses/...`,已全部改为相对分类路径
+  - `content/_index.md`:首页 hero 按钮使用 `/courses` 站点绝对路径,在 GitHub Pages 项目页(子路径部署)下指向域名根,已改为相对路径
+  - 全站 168 页内部链接检查通过(0 断链)
+- ✅ **新增站内链接检查脚本** `scripts/check_internal_links.py`
+  - 构建后扫描 `public/`,同时拦截"相对路径越级"与"绝对路径丢失 baseURL 子路径"两类问题
+  - 已接入 `.github/workflows/deploy.yml`:部署前自动把关,坏链即失败
+- ✅ **全新 404 页面**(`layouts/404.html` + `custom.css` 第 16 节)
+  - 中文文案 + 渐变 404 数字(深色模式单独调优)+ 返回首页/课程/按学院三个入口 + 5 个热门课程快捷链接 + Ctrl/⌘K 搜索提示
+  - 继承主题 baseof,自动获得全站 Apple 风格与导航页脚
+- 备注:主题 `render-link.html` 钩子已会为 markdown 站点绝对链接补 baseURL 子路径;只有 shortcode 的 `link` 参数(如 card/hero-button)需要内容侧保证路径正确。
+
 ## ✅ 已完成 (Phase 1 & Phase 2)
 
 ### Phase 1: MVP
