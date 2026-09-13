@@ -515,12 +515,3 @@ aliases:
 - [11-7](https://github.com/Geraldxm/JLU-CS-Courses/tree/main/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/9%20%E6%B3%9B%E5%9E%8B%E7%AD%89/%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%9B%E5%9E%8B%E4%BE%8B%E5%AD%90/11-7)
 - [往年考试题](https://github.com/Geraldxm/JLU-CS-Courses/tree/main/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E5%BE%80%E5%B9%B4%E8%80%83%E8%AF%95%E9%A2%98)
 
-## 课程评价
-
-## 学习建议
-
-- 待补充
-
----
-
-*信息有误或需要补充? 欢迎提 [Issue](https://github.com/Chlx42/jlu-course-guide/issues) 或 PR*

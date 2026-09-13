@@ -200,10 +200,13 @@ html.dark :is(.content, #content) :where(a:not(.hextra-card):not(.hextra-feature
   border-color: var(--apple-hairline-strong) !important;
 }
 
-/* Tables — hairline grid, soft header, rounded container */
+/* Tables — hairline grid, soft header, rounded container.
+   width: fit-content keeps the frame hugging the last column
+   (theme tables are display:block full-width, which otherwise
+   leaves a phantom empty column inside the border). */
 :is(.content, #content) :where(table) {
-  border-collapse: separate;
-  border-spacing: 0;
+  width: fit-content;
+  max-width: 100%;
   border: 1px solid var(--apple-hairline);
   border-radius: 12px;
   overflow: hidden;
@@ -427,6 +430,54 @@ html.dark .course-tag--theory,
 html.dark .course-tag--default           { background: var(--apple-surface-2); color: var(--apple-text-secondary); border: 1px solid var(--apple-hairline); }
 html.dark .course-tag--lab               { background: hsla(243, 75%, 59%, 0.22); color: hsl(243, 95%, 76%); }
 html.dark .course-tag--project           { background: hsla(330, 80%, 60%, 0.2); color: hsl(330, 90%, 74%); }
+
+/* ------------------------------------------------------------
+   6b. Course meta header — auto-generated fact chips
+   ------------------------------------------------------------ */
+.course-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.625rem;
+  margin: 0.25rem 0 1.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--apple-surface);
+  border: 1px solid var(--apple-hairline);
+  border-radius: 14px;
+  font-size: 0.875rem;
+}
+
+.course-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 8px;
+  background: var(--apple-surface-2);
+  color: var(--apple-text);
+  white-space: nowrap;
+}
+
+.course-meta-item strong {
+  font-weight: 600;
+  font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, monospace;
+}
+
+.course-meta-label {
+  color: var(--apple-text-secondary);
+  font-size: 0.8125rem;
+}
+
+.course-meta-empty {
+  flex-basis: 100%;
+  margin: 0.25rem 0 0;
+  color: var(--apple-text-secondary);
+  line-height: 1.6;
+}
+
+html.dark .course-meta {
+  background: var(--apple-surface);
+}
 
 /* ------------------------------------------------------------
    7. Search — pill trigger, material dialog

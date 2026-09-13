@@ -3,6 +3,7 @@ title: 编译原理
 type: docs
 weight: 3
 course_code: 542007
+credits: 4
 difficulty: 5
 semester: 大三下
 tags: ["专业必修", "理论课", "大作业"]
@@ -14,30 +15,8 @@ aliases:
 ---
 
 {{< callout type="warning" emoji="🔥" >}}
-**吉大计院最硬核课程之一**  
-大三下 · 4学分 · 专业必修 · 难度 ⭐⭐⭐⭐⭐
+**吉大计院最硬核课程之一**
 {{< /callout >}}
-
-## 课程速览
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
-
-<div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); padding: 1.25rem; border-radius: 12px; color: #1a1a1a;">
-<div style="font-size: 0.875rem; opacity: 0.8; margin-bottom: 0.5rem;">课程代码</div>
-<div style="font-size: 1.5rem; font-weight: 600;">542007</div>
-</div>
-
-<div style="background: linear-gradient(135deg, #ff6a00 0%, #ee0979 100%); padding: 1.25rem; border-radius: 12px; color: white;">
-<div style="font-size: 0.875rem; opacity: 0.9; margin-bottom: 0.5rem;">开课学期</div>
-<div style="font-size: 1.5rem; font-weight: 600;">大三下</div>
-</div>
-
-<div style="background: linear-gradient(135deg, #f12711 0%, #f5af19 100%); padding: 1.25rem; border-radius: 12px; color: white;">
-<div style="font-size: 0.875rem; opacity: 0.9; margin-bottom: 0.5rem;">大作业耗时</div>
-<div style="font-size: 1.5rem; font-weight: 600;">40-80h</div>
-</div>
-
-</div>
 
 ### 一句话总结
 
@@ -379,8 +358,7 @@ aliases:
 
 *页面更新于 2026-09-05 · [提交反馈](https://github.com/Chlx42/jlu-course-guide/issues)*
 
-
-### 归并补充链接
+### 更多资料
 
 **JLU-CS-Courses**
 
@@ -389,6 +367,4 @@ aliases:
 - [编译原理课设](https://github.com/Geraldxm/JLU-CS-Courses/tree/main/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E8%AF%BE%E8%AE%BE)
 - [虚拟机TM代码](https://github.com/Geraldxm/JLU-CS-Courses/tree/main/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E8%AF%BE%E8%AE%BE/%E8%99%9A%E6%8B%9F%E6%9C%BATM%E4%BB%A3%E7%A0%81)
 
-**其他**
 
-- [Issue](https://github.com/Chlx42/jlu-course-guide/issues)

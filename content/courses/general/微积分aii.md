@@ -26,7 +26,7 @@ aliases:
 - [2018-2019AII试题](https://github.com/Geraldxm/JLU-CS-Courses/tree/main/%E5%BE%AE%E7%A7%AF%E5%88%86AII/2018-2019AII%E8%AF%95%E9%A2%98)
 - [高数电子书](https://github.com/Geraldxm/JLU-CS-Courses/tree/main/%E5%BE%AE%E7%A7%AF%E5%88%86AII/%E9%AB%98%E6%95%B0%E7%94%B5%E5%AD%90%E4%B9%A6)
 
-### 归并补充链接
+### 更多资料
 
 **JLU-CS-Courses**
 
@@ -34,16 +34,4 @@ aliases:
 - [2018-2019AII试题](https://github.com/Geraldxm/JLU-CS-Courses/tree/main/%E5%BE%AE%E7%A7%AF%E5%88%86AII/2018-2019AII%E8%AF%95%E9%A2%98)
 - [高数电子书](https://github.com/Geraldxm/JLU-CS-Courses/tree/main/%E5%BE%AE%E7%A7%AF%E5%88%86AII/%E9%AB%98%E6%95%B0%E7%94%B5%E5%AD%90%E4%B9%A6)
 
-**其他**
 
-- [Issue](https://github.com/Chlx42/jlu-course-guide/issues)
-
-## 课程评价
-
-## 学习建议
-
-- 待补充
-
----
-
-*信息有误或需要补充? 欢迎提 [Issue](https://github.com/Chlx42/jlu-course-guide/issues) 或 PR*

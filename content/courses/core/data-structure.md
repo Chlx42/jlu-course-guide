@@ -3,6 +3,7 @@ title: 数据结构
 type: docs
 weight: 1
 course_code: 542003
+credits: 4
 difficulty: 3
 semester: 大二上
 tags: ["专业必修", "编程基础", "算法入门"]
@@ -14,30 +15,8 @@ aliases:
 ---
 
 {{< callout type="info" emoji="📊" >}}
-**编程基础→算法入门的必经之路**  
-大二上 · 4学分 · 专业必修 · 难度 ⭐⭐⭐
+**编程基础→算法入门的必经之路**
 {{< /callout >}}
-
-## 课程速览
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
-
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.25rem; border-radius: 12px; color: white;">
-<div style="font-size: 0.875rem; opacity: 0.9; margin-bottom: 0.5rem;">课程代码</div>
-<div style="font-size: 1.5rem; font-weight: 600;">542003</div>
-</div>
-
-<div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 1.25rem; border-radius: 12px; color: white;">
-<div style="font-size: 0.875rem; opacity: 0.9; margin-bottom: 0.5rem;">开课学期</div>
-<div style="font-size: 1.5rem; font-weight: 600;">大二上</div>
-</div>
-
-<div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); padding: 1.25rem; border-radius: 12px; color: white;">
-<div style="font-size: 0.875rem; opacity: 0.9; margin-bottom: 0.5rem;">通过率</div>
-<div style="font-size: 1.5rem; font-weight: 600;">~85%</div>
-</div>
-
-</div>
 
 ### 一句话总结
 
@@ -268,8 +247,7 @@ graph LR
 
 *页面更新于 2026-09-05 · [提交反馈](https://github.com/Chlx42/jlu-course-guide/issues)*
 
-
-### 归并补充链接
+### 更多资料
 
 **JLU-CS-Courses**
 
@@ -278,6 +256,4 @@ graph LR
 - [数据结构习题课2等8个文件](https://github.com/Geraldxm/JLU-CS-Courses/tree/main/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%A0%E9%A2%98%E8%AF%BE2%E7%AD%898%E4%B8%AA%E6%96%87%E4%BB%B6)
 - [朱允刚ppt](https://github.com/Geraldxm/JLU-CS-Courses/tree/main/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9C%B1%E5%85%81%E5%88%9Appt)
 
-**其他**
 
-- [Issue](https://github.com/Chlx42/jlu-course-guide/issues)

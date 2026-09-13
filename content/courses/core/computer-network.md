@@ -3,6 +3,7 @@ title: 计算机网络
 type: docs
 weight: 4
 course_code: 542006
+credits: 4
 difficulty: 3
 semester: 大三上
 tags: ["专业必修", "网络协议", "应用层"]
@@ -35,14 +36,6 @@ aliases:
 - [WilliamPockey/JLU_CS 计算机网络](https://github.com/WilliamPockey/JLU_CS)
 - [ChenGeng0102/JLU 网络资料](https://github.com/ChenGeng0102/JLU)
 
-### 课程笔记
-
-- 待补充
-
-### 实验代码
-
-- 待补充
-
 ### 推荐教材
 
 - 《计算机网络 - 自顶向下方法》(Computer Networking: A Top-Down Approach) - James F. Kurose
@@ -53,7 +46,7 @@ aliases:
 - [Stanford CS144 计算机网络](https://cs144.github.io/)
 - [Wireshark 官方教程](https://www.wireshark.org/docs/)
 
-### 归并补充链接
+### 更多资料
 
 **JLU-CS-Courses**
 
@@ -61,11 +54,6 @@ aliases:
 - [计算机网络](https://github.com/Geraldxm/JLU-CS-Courses/tree/main/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C)
 - [老师标准课件](https://github.com/Geraldxm/JLU-CS-Courses/tree/main/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%80%81%E5%B8%88%E6%A0%87%E5%87%86%E8%AF%BE%E4%BB%B6)
 
-**其他**
-
-- [Issue](https://github.com/Chlx42/jlu-course-guide/issues)
-
-## 课程评价
 
 ## 学习建议
 
@@ -101,7 +89,3 @@ A: OSI 是七层理论模型,TCP/IP 是五层(或四层)实际模型。课程一
 
 **Q: 需要配置路由器交换机吗?**  
 A: 取决于实验安排,可能会用 Packet Tracer 或 GNS3 仿真。
-
----
-
-*信息有误或需要补充? 欢迎提 [Issue](https://github.com/Chlx42/jlu-course-guide/issues) 或 PR*

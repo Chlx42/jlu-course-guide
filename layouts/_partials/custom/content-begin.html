@@ -1,0 +1,46 @@
+{{- /* 课程页顶部的信息条:从 front matter 生成,内容里已有速览/课程信息的页面不再重复 */ -}}
+{{- if and (eq .Kind "page") (eq .Section "courses") -}}
+  {{- $hasOwnHeader := or (findRE "课程速览" .Content) (findRE "data-hextra-search-id=课程信息" .Content) (findRE "id=\"课程信息\"" .Content) -}}
+  {{- if not $hasOwnHeader -}}
+    {{- $code := .Params.course_code | string -}}
+    {{- $sem := .Params.semester -}}
+    {{- $diff := 0 -}}
+    {{- with .Params.difficulty -}}{{- $diff = int . -}}{{- end -}}
+    {{- $college := .Params.college -}}
+    <div class="course-meta not-prose">
+      {{- with $code -}}
+        <span class="course-meta-item"><span class="course-meta-label">课程代码</span><strong>{{ . }}</strong></span>
+      {{- end -}}
+      {{- with .Params.credits -}}
+        <span class="course-meta-item"><span class="course-meta-label">学分</span>{{ . }}</span>
+      {{- end -}}
+      {{- with $sem -}}
+        <span class="course-meta-item"><span class="course-meta-label">开课学期</span>{{ . }}</span>
+      {{- end -}}
+      {{- with $college -}}
+        <span class="course-meta-item"><span class="course-meta-label">开课学院</span>{{ . }}</span>
+      {{- end -}}
+      {{- if gt $diff 0 -}}
+        <span class="course-meta-item">
+          <span class="course-meta-label">难度</span>
+          <span aria-label="{{ $diff }} / 5">
+            {{- range seq 5 -}}{{- if le . $diff -}}★{{- else -}}☆{{- end -}}{{- end -}}
+          </span>
+          {{- if le $diff 2 -}}{{- $cls := "easy" -}}{{- $lbl := "较易" -}}
+            <span class="course-tag course-tag--difficulty-easy">{{ $lbl }}</span>
+          {{- else if eq $diff 3 -}}
+            <span class="course-tag course-tag--difficulty-medium">中等</span>
+          {{- else -}}
+            <span class="course-tag course-tag--difficulty-hard">较难</span>
+          {{- end -}}
+        </span>
+      {{- end -}}
+      {{- with .Params.tags -}}
+        {{- range . -}}<span class="course-tag course-tag--default">{{ . }}</span>{{- end -}}
+      {{- end -}}
+      {{- if and (not $code) (eq $diff 0) (not $sem) -}}
+        <p class="course-meta-empty">这门课的信息还很少。上过的话,欢迎在页面底部写两句,帮后来的同学省点事。</p>
+      {{- end -}}
+    </div>
+  {{- end -}}
+{{- end -}}

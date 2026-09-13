@@ -47,6 +47,7 @@ hasCJKLanguage = true
     weight = 5
 
 [params]
+  displayUpdatedDate = true
   description = "吉林大学课程攻略共享计划 - 汇总课程资料、往年题、学习经验"
 
   [params.navbar]

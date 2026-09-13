@@ -3,6 +3,7 @@ title: 算法设计与分析
 type: docs
 weight: 7
 course_code: 542009
+credits: 3
 difficulty: 4
 semester: 大三下
 tags: ["专业必修", "算法", "复杂度分析"]
@@ -34,10 +35,6 @@ aliases:
 - [JLU-CS-Courses 算法资料](https://github.com/Geraldxm/JLU-CS-Courses)
 - [WilliamPockey/JLU_CS 算法](https://github.com/WilliamPockey/JLU_CS)
 
-### 课程笔记
-
-- 待补充
-
 ### 推荐教材
 
 - 《算法导论》(Introduction to Algorithms) - Thomas H. Cormen 等
@@ -49,18 +46,13 @@ aliases:
 - [洛谷](https://www.luogu.com.cn/) - 算法竞赛题库
 - [Visualgo](https://visualgo.net/) - 算法可视化
 
-### 归并补充链接
+### 更多资料
 
 **JLU-Courses**
 
 - [541008  算法分析](https://github.com/JLU-NightsWatch/JLU-Courses/tree/main/541008%20%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90)
 - [551005 算法设计与分析 A](https://github.com/JLU-NightsWatch/JLU-Courses/tree/main/551005%20%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%88%86%E6%9E%90%20A)
 
-**其他**
-
-- [Issue](https://github.com/Chlx42/jlu-course-guide/issues)
-
-## 课程评价
 
 ## 学习建议
 
@@ -92,7 +84,3 @@ A: 课后作业一般不多,但想学好建议多刷题,尤其是动态规划和
 
 **Q: 和数据结构有什么区别?**  
 A: 数据结构偏重"存储",算法偏重"计算"。算法课更注重设计思想和复杂度分析。
-
----
-
-*信息有误或需要补充? 欢迎提 [Issue](https://github.com/Chlx42/jlu-course-guide/issues) 或 PR*

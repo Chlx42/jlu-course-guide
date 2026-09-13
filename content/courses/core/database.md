@@ -3,6 +3,7 @@ title: 数据库系统
 type: docs
 weight: 6
 course_code: 542008
+credits: 4
 difficulty: 3
 semester: 大三上
 tags: ["专业必修", "SQL", "课程设计"]
@@ -35,14 +36,6 @@ aliases:
 - [JLU-Courses 数据库](https://github.com/JLU-NightsWatch/JLU-Courses)
 - [ChenGeng0102/JLU 数据库资料](https://github.com/ChenGeng0102/JLU)
 
-### 课程笔记
-
-- 待补充
-
-### 课程设计参考
-
-- 待补充
-
 ### 推荐教材
 
 - 《数据库系统概念》(Database System Concepts) - Abraham Silberschatz
@@ -54,7 +47,7 @@ aliases:
 - [UC Berkeley CS186 数据库系统](https://cs186berkeley.net/)
 - [SQL 自学教程](https://www.sqlcourse.com/)
 
-### 归并补充链接
+### 更多资料
 
 **JLU-CS-Courses**
 
@@ -62,11 +55,6 @@ aliases:
 - [数据库（翻译](https://github.com/Geraldxm/JLU-CS-Courses/tree/main/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88%E7%BF%BB%E8%AF%91)
 - [旧PPT](https://github.com/Geraldxm/JLU-CS-Courses/tree/main/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/%E6%97%A7PPT)
 
-**其他**
-
-- [Issue](https://github.com/Chlx42/jlu-course-guide/issues)
-
-## 课程评价
 
 ## 学习建议
 
@@ -102,7 +90,3 @@ A: 一般是设计并实现一个小型数据库应用系统(如图书管理、�
 
 **Q: 用什么数据库?**  
 A: 课程可能统一要求,如果自选推荐 MySQL(资料多、轻量)或 PostgreSQL(功能强、标准)。
-
----
-
-*信息有误或需要补充? 欢迎提 [Issue](https://github.com/Chlx42/jlu-course-guide/issues) 或 PR*

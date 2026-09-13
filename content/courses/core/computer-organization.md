@@ -3,6 +3,7 @@ title: 计算机组成原理
 type: docs
 weight: 5
 course_code: 551004
+credits: 4
 difficulty: 4
 semester: 大二下
 tags: ["专业必修", "硬件基础", "原理课"]
@@ -30,33 +31,16 @@ aliases:
 - [JLU-CS-Courses 计算机组成原理](https://github.com/Geraldxm/JLU-CS-Courses/tree/master/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86)
 - [ChenGeng0102/JLU 计组资料](https://github.com/ChenGeng0102/JLU)
 
-### 实验报告
-
-- 待补充
-
-### 课程笔记
-
-- 待补充
-
-### 归并补充链接
+### 更多资料
 
 **JLU-CS-Courses**
 
 - [计算机组成原理](https://github.com/Geraldxm/JLU-CS-Courses/tree/main/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86)
 - [2018-2021《计算计组成原理》试题及答案](https://github.com/Geraldxm/JLU-CS-Courses/tree/main/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/2018-2021%E3%80%8A%E8%AE%A1%E7%AE%97%E8%AE%A1%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E3%80%8B%E8%AF%95%E9%A2%98%E5%8F%8A%E7%AD%94%E6%A1%88)
 
-**其他**
-
-- [Issue](https://github.com/Chlx42/jlu-course-guide/issues)
-
-## 课程评价
 
 ## 学习建议
 
 - 理论结合实验,多画数据通路图
 - 理解流水线、Cache、中断等核心概念
 - MIPS 指令集要熟练掌握
-
----
-
-*信息有误或需要补充? 欢迎提 [Issue](https://github.com/userElaina/jlu-course-guide/issues) 或 PR*
