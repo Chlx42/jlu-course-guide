@@ -36,6 +36,11 @@ hasCJKLanguage = true
     name = "关于"
     pageRef = "/about"
     weight = 3
+  [[menu.main]]
+    name = "搜索"
+    weight = 4
+    [menu.main.params]
+      type = "search"
   [[menu.sidebar]]
     name = "更多"
     params.icon = "sparkles"
