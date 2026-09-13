@@ -13,3 +13,6 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# Aggregator cache
+scripts/.cache/
