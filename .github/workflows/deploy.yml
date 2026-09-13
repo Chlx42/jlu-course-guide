@@ -46,6 +46,10 @@ jobs:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
         run: |
+          # git 默认把非 ASCII 路径转成八进制转义,Hugo 解析 gitInfo 时
+          # 会漏掉所有中文文件名(课程页面绝大多数是中文路径),
+          # 导致「最后更新于」丢失。构建前关掉转义。
+          git config core.quotepath false
           hugo \
             --gc \
             --minify \
